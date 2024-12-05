@@ -1,15 +1,18 @@
 from django.db import models
 
 class Task(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=255)
     description = models.TextField()
-    due_date = models.DateField(default='2024-12-31')
-    completed = models.BooleanField(default=False)
-  # Default to False
-    timestamp = models.DateTimeField(auto_now_add=True)
-
+    due_date = models.DateField()
+    status = models.CharField(
+        max_length=20,
+        choices=[('OPEN', 'Open'), ('IN_PROGRESS', 'In Progress'), ('COMPLETED', 'Completed')],
+        default='OPEN'  # Set a default value for the status field
+    )
+    
     def __str__(self):
         return self.title
+
 from django.shortcuts import render, redirect
 from .models import Task
 

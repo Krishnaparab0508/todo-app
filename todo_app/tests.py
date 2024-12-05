@@ -1,3 +1,14 @@
 from django.test import TestCase
+from .models import Task
 
-# Create your tests here.
+class TaskTest(TestCase):
+    
+    def test_task_creation(self):
+        task = Task.objects.create(
+            title="Test Task",
+            description="Test Task Description",
+            due_date="2024-12-10",
+            status="OPEN"
+        )
+        self.assertEqual(task.title, "Test Task")
+        self.assertEqual(task.status, "OPEN")
