@@ -28,7 +28,8 @@ jobs:
     
     - name: Set up environment variables
       run: |
-        echo "DJANGO_SETTINGS_MODULE=todo_project.settings" >> $GITHUB_ENV
+          echo "DJANGO_SETTINGS_MODULE=todo_project.settings" >> $GITHUB_ENV
+      
     
     - name: Run migrations
       run: |
