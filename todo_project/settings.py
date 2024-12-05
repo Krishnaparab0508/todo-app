@@ -23,10 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  # Ensure it's listed only once
-    'rest_framework',  # Django REST Framework
-    'todo_app',  # Your custom app
+    'django.contrib.staticfiles',
+    'rest_framework',  # Django Rest Framework
+    'todo_app',  # This should be exactly the name of your app
 ]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,3 +71,11 @@ from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 SECRET_KEY = 'mz3^4%1n#+kjh8b*hj_oc*w5h72zeaf7!)6-ti)u-3984unns('
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}

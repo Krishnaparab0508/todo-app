@@ -9,3 +9,5 @@ tzdata==2024.2
 pytest
 pytest-cov
 pytest-django
+flake8
+black
