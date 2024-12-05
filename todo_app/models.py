@@ -7,10 +7,8 @@ class Tag(models.Model):
         return self.name
 
 
-from django.db import models
-
 class Task(models.Model):
-    timestamp = models.DateTimeField(auto_now_add=True)  # Remove `default`
+    timestamp = models.DateTimeField(auto_now_add=True)  # auto-set when creating a new entry
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     due_date = models.DateField(null=True, blank=True)
@@ -28,24 +26,5 @@ class Task(models.Model):
     )
     tags = models.ManyToManyField("Tag", blank=True)
 
-
-from django.shortcuts import render, redirect
-from .models import Task
-
-def add_task(request):
-    if request.method == "POST":
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        due_date = request.POST.get('due_date')
-        # Only pass the required fields and let 'completed' default to False
-        Task.objects.create(
-            title=title, 
-            description=description, 
-            due_date=due_date
-        )
-        return redirect('home')
-
-    return render(request, 'todo_app/add_task.html')
-
-
-
+    def __str__(self):
+        return self.title

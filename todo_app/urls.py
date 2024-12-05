@@ -21,3 +21,11 @@ urlpatterns = [
     path('tasks/<int:pk>/update/', TaskUpdateView.as_view(), name='task-update'),
     path('tasks/<int:pk>/delete/', TaskDeleteView.as_view(), name='task-delete'),
 ]
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home_view, name='home'),  # Home page to view tasks
+    path('add/', views.add_task, name='add_task'),  # Add task page
+    # Add other necessary paths for updating, deleting, etc.
+]

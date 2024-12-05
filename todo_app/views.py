@@ -46,15 +46,25 @@ from django.shortcuts import render, redirect
 from .models import Task
 from django.http import HttpResponse
 
+from django.shortcuts import render, redirect
+from .models import Task
+
 def add_task(request):
     if request.method == "POST":
         title = request.POST.get('title')
         description = request.POST.get('description')
         due_date = request.POST.get('due_date')
-        Task.objects.create(title=title, description=description, due_date=due_date, completed=False)
-        return redirect('home')
+        
+        # Create a new task, passing only the required fields
+        Task.objects.create(
+            title=title, 
+            description=description, 
+            due_date=due_date
+        )
+        return redirect('home')  # redirect to the home page or task list view
 
-    return render(request, 'todo_app/add_task.html')
+    return render(request, 'todo_app/add_task.html')  # render the task creation form
+
 
 from django.shortcuts import get_object_or_404, redirect
 from .models import Task
