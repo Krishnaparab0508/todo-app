@@ -37,11 +37,16 @@ jobs:
     
     - name: Run tests
       run: |
-        pytest todo_app/tests.py --cov=todo_app --cov-report=html
+        pytest todo_app/tests.py --cov=todo_app --cov-report=html --junitxml=test-results/test-report.xml
     
     - name: Upload coverage report
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
         path: htmlcov/
-
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: test-results/test-report.xml
