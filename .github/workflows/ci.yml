@@ -40,7 +40,7 @@ jobs:
         pytest todo_app/tests.py --cov=todo_app --cov-report=html --junitxml=test-results/test-report.xml
     
     - name: Upload coverage report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: coverage-report
         path: htmlcov/
