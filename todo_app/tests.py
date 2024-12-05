@@ -17,9 +17,6 @@ class TaskTest(TestCase):
 from django.test import TestCase
 from .models import Task, Tag
 
-from django.test import TestCase
-from .models import Task
-
 class TaskModelTest(TestCase):
     def test_task_creation(self):
         task = Task.objects.create(

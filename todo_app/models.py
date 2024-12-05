@@ -30,9 +30,11 @@ class Task(models.Model):
     tags = models.ManyToManyField("Tag", blank=True)
 
     def clean(self):
-        # Check that the due date is not earlier than the timestamp
-        if self.due_date and self.due_date < self.timestamp.date():
-            raise ValidationError({'due_date': 'Due date cannot be earlier than the timestamp.'})
+        # Ensure the timestamp is set before performing the check
+        if self.timestamp and self.due_date:
+            if self.due_date < self.timestamp.date():
+                raise ValidationError("Due Date cannot be earlier than the Timestamp.")
+        super().clean()
 
     def save(self, *args, **kwargs):
         # Call full_clean before saving to trigger the validation
