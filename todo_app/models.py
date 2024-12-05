@@ -7,8 +7,10 @@ class Tag(models.Model):
         return self.name
 
 
+from django.db import models
+
 class Task(models.Model):
-    timestamp = models.DateTimeField(auto_now_add=True)  # auto-set when creating a new entry
+    timestamp = models.DateTimeField(auto_now_add=True)  # auto-generated timestamp
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     due_date = models.DateField(null=True, blank=True)

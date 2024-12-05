@@ -54,16 +54,16 @@ def add_task(request):
         title = request.POST.get('title')
         description = request.POST.get('description')
         due_date = request.POST.get('due_date')
-        
-        # Create a new task, passing only the required fields
+
+        # Only pass the required fields, and do not include 'completed'
         Task.objects.create(
             title=title, 
             description=description, 
             due_date=due_date
         )
-        return redirect('home')  # redirect to the home page or task list view
+        return redirect('home')
 
-    return render(request, 'todo_app/add_task.html')  # render the task creation form
+    return render(request, 'todo_app/add_task.html')
 
 
 from django.shortcuts import get_object_or_404, redirect
