@@ -1,17 +1,33 @@
 from django.db import models
 
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)  # Ensure tag names are unique
+
+    def __str__(self):
+        return self.name
+
+
+from django.db import models
+
 class Task(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    due_date = models.DateField()
+    timestamp = models.DateTimeField(auto_now_add=True)  # Remove `default`
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000)
+    due_date = models.DateField(null=True, blank=True)
     status = models.CharField(
         max_length=20,
-        choices=[('OPEN', 'Open'), ('IN_PROGRESS', 'In Progress'), ('COMPLETED', 'Completed')],
-        default='OPEN'  # Set a default value for the status field
+        choices=[
+            ("OPEN", "OPEN"),
+            ("WORKING", "WORKING"),
+            ("PENDING REVIEW", "PENDING REVIEW"),
+            ("COMPLETED", "COMPLETED"),
+            ("OVERDUE", "OVERDUE"),
+            ("CANCELLED", "CANCELLED"),
+        ],
+        default="OPEN",
     )
-    
-    def __str__(self):
-        return self.title
+    tags = models.ManyToManyField("Tag", blank=True)
+
 
 from django.shortcuts import render, redirect
 from .models import Task

@@ -4,7 +4,7 @@ from .serializers import TaskSerializer
 
 
 # Create a task
-class TaskCreateView(generics.CreateAPIView):
+class TaskListCreateView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
@@ -28,6 +28,9 @@ class TaskDeleteView(generics.DestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
+class TaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
 
 from django.shortcuts import render
 from .models import Task
