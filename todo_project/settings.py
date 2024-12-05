@@ -8,7 +8,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',  # Use BASE_DIR for database location
     }
 }
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
+
+
 DEBUG = True
 ROOT_URLCONF = 'todo_project.urls'
 
