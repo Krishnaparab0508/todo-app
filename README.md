@@ -96,13 +96,6 @@ To ensure the code is working correctly:
 python manage.py test
 ```
 
-### **Coverage Report**
-- **Unit Test Coverage**: 100%
-- **Integration Test Coverage**: 100%
-- Coverage report included as `htmlcov` folder in the repository.
-
----
-
 ## **Deployment**
 The application is hosted on **Heroku**:
 - [Live Link](https://my-new-todo-app-6124f2bbfcdc.herokuapp.com/)
