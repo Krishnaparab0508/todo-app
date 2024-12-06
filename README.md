@@ -113,25 +113,6 @@ The application is hosted on **Heroku**:
 
 ---
 
-## **Documentation**
-The project documentation is hosted [here](https://<your-documentation-link>/).
-
----
-
-## **Postman Collection**
-The Postman collection for testing the APIs is available [here](<postman-link>).
-
----
-
-## **E2E Test Recordings**
-- A folder named `videos/` contains recordings of all E2E tests:
-  1. Create a task.
-  2. Retrieve all tasks.
-  3. Update a task.
-  4. Delete a task.
-
----
-
 ## **Developer Information**
 - **Developed by**: Krishna Dashrath Parab  
 - **GitHub**: [Krishnaparab0508](https://github.com/Krishnaparab0508)  
@@ -139,7 +120,5 @@ The Postman collection for testing the APIs is available [here](<postman-link>).
 
 ---
 
-## **Screenshots**
-![Coverage Summary](htmlcov/coverage-summary.png)
 
 
