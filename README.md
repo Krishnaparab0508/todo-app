@@ -1,7 +1,3 @@
-Here's the content formatted with proper Markdown headings using `#` for titles and `##` for subheadings:
-
----
-
 # **To-Do List Application**
 
 ## **Overview**
@@ -146,6 +142,4 @@ The Postman collection for testing the APIs is available [here](<postman-link>).
 ## **Screenshots**
 ![Coverage Summary](htmlcov/coverage-summary.png)
 
----
 
-Paste this into your `README.md` file and save it. Let me know if you need further adjustments or help!
