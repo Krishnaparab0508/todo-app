@@ -19,9 +19,22 @@ class TaskListView(generics.ListAPIView):
     serializer_class = TaskSerializer
 
 # Update a task
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import serializers
+
 class TaskUpdateView(generics.UpdateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+    @action(detail=True, methods=['patch'], url_path='complete')
+    def mark_completed(self, request, pk=None):
+        task = self.get_object()
+        task.completed = True
+        task.save()
+        return Response({'status': 'completed'}, status=status.HTTP_200_OK)
+
 
 # Delete a task
 class TaskDeleteView(generics.DestroyAPIView):
